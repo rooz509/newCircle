@@ -20,6 +20,11 @@ function searchColors(query, filters = {}) {
   });
 }
 
+function getNewColors() {
+  // TODO: Write this
+}
+
 module.exports = {
   searchColors,
+  getNewColors
 };
