@@ -29,7 +29,7 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
 
     lint:
-        execuor: node-executor
+        executor: node-executor
         working_directory: ~/webapp
         steps:
             - checkout
