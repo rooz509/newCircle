@@ -28,23 +28,23 @@ jobs:
                     - node_modules
                 key: v1-dependencies-{{ checksum "package.json" }}
 
-  lint:
-      execuor: node-executor
-      working_directory: ~/webapp
-      steps:
-          - checkout
+    lint:
+        execuor: node-executor
+        working_directory: ~/webapp
+        steps:
+            - checkout
+            - attach_workspace:
+                at: ~/webapp
+            - run: npm run lint
+
+    test:
+        executor: node-executor
+        working_directory: ~/webapp
+        steps:
+          -checkout
           - attach_workspace:
               at: ~/webapp
-          - run: npm run lint
-
-  test:
-      executor: node-executor
-      working_directory: ~/webapp
-      steps:
-        -checkout
-        - attach_workspace:
-            at: ~/webapp
-        - run: npm test
+          - run: npm test
 
 workflows:
     version: 2
