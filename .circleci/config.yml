@@ -1,7 +1,13 @@
-version: 2
+version: 2.1
+executors:
+    node-executor:
+      docker:
+        - image cicrcleci/node:9.9
+      working_directory: ~/webapp
+
 jobs:
   install-dependencies:
-    executor: node-executer
+    executor: node-executor
     working_directory: ~/webapp
     steps:
       - checkout
@@ -45,9 +51,9 @@ workflow:
   build_test_deploy:
     jobs:
     - install-dependencies
-    -lint
+    -lint:
       requires:
       - install-dependencies
-    -test
+    -test:
       requires:
       - install-dependencies
