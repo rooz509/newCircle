@@ -18,7 +18,7 @@ jobs:
 
             - run: npm install
 
-            - persist_to_webspace:
+            - persist_to_workspace:
                 root: ~/webapp
                 paths:
                     - node_modules
