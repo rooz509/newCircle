@@ -41,10 +41,10 @@ jobs:
         executor: node-executor
         working_directory: ~/webapp
         steps:
-          -checkout
-          - attach_workspace:
-              at: ~/webapp
-          - run: npm test
+            -checkout
+            - attach_workspace:
+                at: ~/webapp
+            - run: npm test
 
 workflows:
     version: 2
@@ -52,8 +52,8 @@ workflows:
         jobs:
             - install-dependencies
             -lint:
-              requires:
-                - install-dependencies
+                requires:
+                    - install-dependencies
             -test:
-              requires:
-                - install-dependencies
+                requires:
+                    - install-dependencies
